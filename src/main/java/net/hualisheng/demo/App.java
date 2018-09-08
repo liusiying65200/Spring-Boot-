@@ -8,8 +8,6 @@ import net.hualisheng.demo.model.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.context.config.DelegatingApplicationContextInitializer;
-import org.springframework.boot.context.config.DelegatingApplicationListener;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
@@ -24,7 +22,7 @@ import java.util.Map;
 @EnableConfigurationProperties
 //@EnableAutoConfiguration
 public class App {
-//    DelegatingApplicationContextInitializer
+    //    DelegatingApplicationContextInitializer
 //    DelegatingApplicationListener
     private static final ApplicationListener ApplicationListener = new AppListnener();
     private static final ApplicationEvent ApplicationEvent = new AppEvent(new Role());
