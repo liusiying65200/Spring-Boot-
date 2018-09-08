@@ -15,6 +15,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import java.util.EventObject;
 import java.util.Map;
 //
 //@EnableAutoConfiguration(excludeName = "net.hualisheng.demo.model.Role")
@@ -38,6 +39,7 @@ public class App {
 //        app.addListeners(ApplicationListener);
 
         ConfigurableApplicationContext context = app.run(args);
+        context.start();
 //        Runnable bean = context.getBean(Runnable.class);
 //        System.out.println(bean);
         Map<String, Runnable> map = context.getBeansOfType(Runnable.class);
@@ -48,6 +50,13 @@ public class App {
         System.out.println(context.getBean("gson2"));
         System.out.println(context.getBean("jeep"));
         context.publishEvent(ApplicationEvent);//使用的是这个接口来发布事件的ApplicationEventPublisher
-        context.close();
+        Map<String, Object> beans = context.getBeansOfType(Object.class);
+        int size = beans.size();
+        System.err.println(size);
+        for (String s : beans.keySet()) {
+            System.out.println("事件名称:"+s);
+        }
+//        context.close();
+        context.stop();
     }
 }
