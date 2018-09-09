@@ -138,3 +138,17 @@ public interface Banner {
 ```markdown
 在classpath下放入自定义的banner.txt文件即可
 ```
+####设置和获取配置项数据
+>1.通过API的形式
+```
+Map<String, Object> defaultProperties=new Hashtable<>();
+defaultProperties.put("port","8080");
+app.setDefaultProperties(defaultProperties);
+```
+>2.通过配置项与@Value注解进行配合使用
+```markdown
+  在application.properties中添加配置项:host=127.0.0.1
+  @Value("${host:12.123}")
+  private String host;
+```
+
