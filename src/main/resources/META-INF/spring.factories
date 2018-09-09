@@ -1,1 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=net.hualisheng.demo.config.RunableConfigration,net.hualisheng.demo.config.UserConfigration,net.hualisheng.demo.model.Role
+org.springframework.context.ApplicationContextInitializer=net.hualisheng.demo.model.AppConfigurableContextInitializer
