@@ -6,6 +6,7 @@ import net.hualisheng.demo.event.AppEvent;
 import net.hualisheng.demo.listener.AppListnener;
 import net.hualisheng.demo.model.Role;
 import net.hualisheng.demo.model.User;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -38,7 +39,7 @@ public class App {
         SpringApplication app = new SpringApplication(App.class);
         app.addListeners(ApplicationListener);
 
-        ConfigurableApplicationContext context = app.run(args);
+        ConfigurableApplicationContext context = app.run("23546","gregr");
 //        Runnable bean = context.getBean(Runnable.class);
 //        System.out.println(bean);
         Map<String, Runnable> map = context.getBeansOfType(Runnable.class);
@@ -49,6 +50,8 @@ public class App {
         System.out.println(context.getBean("gson2"));
         System.out.println(context.getBean("jeep"));
         context.publishEvent(ApplicationEvent);//使用的是这个接口来发布事件的ApplicationEventPublisher
+
+//        CommandLineRunner
         context.close();
     }
 }
